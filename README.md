@@ -7,51 +7,6 @@ scene: locomotives crossing the screen, wheels turning, and a track rolling
 by. It is inspired by terminal screensavers like Asciiquarium, but all
 architecture, source code, and ASCII art are original.
 
-## Current Status
-
-**Milestone 6 — CLI and Configuration** is complete. Conductor currently provides:
-
-- Single binary, no runtime dependencies.
-- tcell-based terminal rendering with alternate screen and cursor hiding.
-- Double-buffered canvas with cell-level diffing (no full-screen flicker).
-- Delta-time animation clock (frame-rate independent movement).
-- Entity manager with add/remove/update/query, layer-sorted rendering.
-- Layer system (sky=0, celestial=10, distant=20, nearby=30, platform=40,
-  track=50, train=60, foreground=70, particles=80, overlay=90).
-- Behavior interface with composable built-in behaviors.
-- Entity lifecycle: creation, active, lifetime expiration, off-screen removal.
-- Sprite system with multi-frame animation, validation, and coupling checks.
-- Three train types with six carriage types, directional variants, and
-  procedural consist generation.
-- Animated wheels and smoke particles from steam locomotives.
-- Time system: morning, day, sunset, night — affects palette, sun/moon/stars.
-- Weather system: clear, rain, snow — particle entities with recycling.
-- Random event scheduler: long freight, smoke burst, birds, lightning, signal
-  change — with cooldowns and deterministic seeding.
-- Scene interface with countryside, station, and mountain scenes.
-- Signal entities with red/green state machine (shape-based accessibility).
-- Cloud entities that drift and wrap around the viewport.
-- **Full CLI with Cobra**: --train, --scene, --weather, --time, --speed,
-  --fps, --seed, --color, --no-color, --reduced-motion, --config, --version,
-  --help. All flags validated with clear error messages.
-- **TOML configuration file**: ~/.config/conductor/config.toml with
-  precedence: defaults → config file → CLI flags. Missing file and unknown
-  fields handled gracefully.
-- **No-color mode**: removes all color from rendering, preserving readability
-  via shape-based distinctions (signals, celestial elements).
-- **Reduced-motion mode**: lowers FPS, reduces particle counts, disables
-  lightning, configurable via CLI, config file, or 'c' key toggle.
-- **Help overlay**: press 'h' or '?' to show/hide keyboard controls. Esc
-  closes it. Centered overlay with border, readable in any terminal.
-- **Color palette cycling**: 'c' key toggles color/no-color mode.
-- Scene switching via 's' key, weather via 'w' key, time via 'd' key.
-- Keyboard controls: quit, pause, regenerate, next train, change scene,
-  change weather, change time, toggle color, toggle help, speed control.
-- Terminal resize handling, graceful terminal restoration, panic recovery.
-- Minimum terminal size check (80x24) with a readable message.
-- 261 automated tests covering all systems, including input (100% coverage),
-  snapshot, integration, and soak tests.
-
 ## Installation
 
 ### From Source
