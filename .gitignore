@@ -1,0 +1,19 @@
+# Binaries
+/conductor
+/bin/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Go test artifacts
+*.out
+*.prof
+coverage.txt
